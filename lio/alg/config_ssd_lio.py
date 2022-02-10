@@ -6,7 +6,7 @@ def get_config():
     config = ConfigDict()
 
     config.alg = ConfigDict()
-    config.alg.n_episodes = 50000
+    config.alg.n_episodes = 500000
     config.alg.n_eval = 10
     config.alg.n_test = 3
     config.alg.period = 1000
@@ -18,8 +18,8 @@ def get_config():
     config.env.disable_rotation_action = True
     # if not None, a fixed global reference frame is used for all agents
     # config.env.global_ref_point = [4, 4]  # cleanup_10x10
-    # config.env.global_ref_point = [3, 3]  # for cleanup_small
-    config.env.global_ref_point = None
+    config.env.global_ref_point = [3, 3]  # for cleanup_small
+    # config.env.global_ref_point = None
     config.env.map_name = 'cleanup_small_sym'  # 'cleanup_small_sym'|'cleanup_10x10_sym'
     config.env.max_steps = 50 # small: 50 | 10x10: 50
     config.env.n_agents = 2
@@ -42,8 +42,8 @@ def get_config():
     config.env.view_size = 4
     # config.env.view_size = 7
     config.env.cleanup_params = ConfigDict()
-    config.env.cleanup_params.appleRespawnProbability = 0.5  # 10x10 0.3 | small 0.5
-    config.env.cleanup_params.thresholdDepletion = 0.6  # 10x10 0.4 | small 0.6
+    config.env.cleanup_params.appleRespawnProbability = 0.3  # 10x10 0.3 | small 0.5
+    config.env.cleanup_params.thresholdDepletion = 0.4  # 10x10 0.4 | small 0.6
     config.env.cleanup_params.thresholdRestoration = 0.0  # 10x10 0.0 | small 0.0
     config.env.cleanup_params.wasteSpawnProbability = 0.5  # 10x10 0.5 | small 0.5
 
@@ -64,14 +64,14 @@ def get_config():
     config.lio.lr_reward = 1e-3
     config.lio.lr_v = 1e-3
     config.lio.optimizer = 'adam'
-    config.lio.reg = 'l1'
-    config.lio.reg_coeff = 1e-4  # float, or 'linear', or 'adaptive'
+    config.lio.reg = 'l2'
+    config.lio.reg_coeff = 1e-3  # float, or 'linear', or 'adaptive'
     config.lio.separate_cost_optimizer = False
     config.lio.tau = 0.01
     config.lio.use_actor_critic = True
 
     config.main = ConfigDict()
-    config.main.dir_name = 'small_n2_lio'
+    config.main.dir_name = '7*7_lio_cost_chain_rule_l2_normal_1e3'
     config.main.exp_name = 'cleanup'
     config.main.max_to_keep = 12
     config.main.model_name = 'model.ckpt'

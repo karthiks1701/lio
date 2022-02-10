@@ -23,8 +23,8 @@ CLEANUP_10x10_SYM = [
 # 7x7 map: Agent 0 on river side, Agent 1 on apple side
 CLEANUP_SMALL_SYM = [
     '@@@@@@@',
-    '@H  PB@',
     '@H   B@',
+    '@H  PB@',
     '@    B@',
     '@    B@',
     '@ P  B@',

@@ -241,6 +241,7 @@ class LIO(object):
             if self.separate_cost_optimizer or self.reg == 'l1':
                 self.ones = tf.placeholder(tf.float32, [None], 'ones')
                 self.gamma_prod = tf.math.cumprod(self.ones * self.gamma)
+                print(self.ones)
                 given_each_step = tf.reduce_sum(tf.abs(
                     tf.multiply(self.reward_function, reverse_1hot)), axis=1)
                 total_given = tf.reduce_sum(tf.multiply(
@@ -371,7 +372,7 @@ class LIO(object):
         feed[self.obs] = buf_self.obs
         feed[self.action_others] = util.get_action_others_1hot_batch(
             buf_self.action_all, self.agent_id, self.l_action_for_r)
-        feed[self.ones] = ones
+        # feed[self.ones] = ones
 
         n_steps = len(buf_self_new.obs)
         v_new = np.reshape(sess.run(

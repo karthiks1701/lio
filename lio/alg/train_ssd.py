@@ -7,9 +7,9 @@ import time
 import numpy as np
 import tensorflow as tf
 
-import lio.alg.config_ssd_lio
-import lio.alg.evaluate
-import lio.env.ssd
+import lio.alg.config_ssd_lio as config_ssd_lio
+import lio.alg.evaluate as evaluate
+import lio.env.ssd as ssd
 
 
 def train_function(config):
